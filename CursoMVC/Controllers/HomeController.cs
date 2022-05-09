@@ -1,4 +1,4 @@
-﻿using CursoMVC.Models;
+﻿using CursoMVC.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

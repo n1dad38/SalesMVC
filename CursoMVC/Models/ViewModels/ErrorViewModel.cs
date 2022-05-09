@@ -1,4 +1,4 @@
-namespace CursoMVC.Models
+namespace CursoMVC.Models.ViewModels
 {
     public class ErrorViewModel
     {
