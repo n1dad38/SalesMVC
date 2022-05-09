@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CursoMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<CursoMVCContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CursoMVCContext") ?? throw new InvalidOperationException("Connection string 'CursoMVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
