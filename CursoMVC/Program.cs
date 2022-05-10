@@ -4,7 +4,11 @@ using CursoMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<CursoMVCContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CursoMVCContext") ?? throw new InvalidOperationException("Connection string 'CursoMVCContext' not found.")));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("CursoMVCContext"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("CursoMVCContext")),
+        builder => builder.MigrationsAssembly("CursoMVC")
+    ));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
